@@ -4,7 +4,6 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./reducers/authReducer";
 import providersReducer from "./reducers/providersReducer";
 import locationReducer from "./reducers/locationReducer";
-import recordingReducer from "./reducers/recordingReducer";
 
 const persistConfig = {
   key: "root",
@@ -15,7 +14,6 @@ const rootReducer = combineReducers({
   auth: authReducer,
   provider: providersReducer,
   location: locationReducer,
-  recording: recordingReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

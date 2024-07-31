@@ -17,17 +17,10 @@ const Sidebar = () => {
 
   const menuItems = [
     {
-      path: "/assistants/appointmentDetails",
-      name: "Appointment Details",
-      icon: "📅",
-    },
-    {
       path: "/assistants/patientCheckIn",
       name: "Patient Check-In",
       icon: "📍",
     },
-    { path: "/assistants/titanAi", name: "Titan AI", icon: "🤖" },
-    { path: "/assistants/settings", name: "Settings", icon: "⚙️" },
   ];
 
   return (

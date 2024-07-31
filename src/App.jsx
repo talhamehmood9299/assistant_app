@@ -2,15 +2,12 @@ import "./App.css";
 import ProtectedRoute from "./components/Protected";
 import Toastify from "./components/Toastify";
 import {
-  AppointmentDetails,
   Assistant,
   Footer,
   Header,
   Login,
   NotFound,
   PatientCheckIn,
-  Settings,
-  TitanAi,
   Unauthorized,
 } from "./pages";
 import {
@@ -51,20 +48,8 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: "appointmentDetails",
-            element: <AppointmentDetails />,
-          },
-          {
             path: "patientCheckIn",
             element: <PatientCheckIn />,
-          },
-          {
-            path: "titanAi",
-            element: <TitanAi />,
-          },
-          {
-            path: "settings",
-            element: <Settings />,
           },
         ],
       },
