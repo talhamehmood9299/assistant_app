@@ -70,3 +70,15 @@ export const sendTranslatedText = async (id, text) => {
   });
   return data;
 };
+
+export const uploadDocument = async (fileData) => {
+  const data = await request("/api/v1/upload-document", "post", fileData);
+  return data;
+};
+
+export const getDocument = async (locationId) => {
+  const data = await request("/api/v1/get-document", "get", null, {
+    location_id: locationId,
+  });
+  return data;
+};
