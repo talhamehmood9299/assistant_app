@@ -21,7 +21,7 @@ const Assistant = () => {
       <Sidebar />
       <div className="flex-1 p-10 bg-gray-100">
         <div className="flex flex-col gap-5">
-          <ProfileHeader provider={provider} handleLogout={handleLogout} />
+          {/* <ProfileHeader provider={provider} handleLogout={handleLogout} /> */}
           <Outlet />
         </div>
       </div>
