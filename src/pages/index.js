@@ -6,3 +6,5 @@ export { default as NotFound } from "./notFound";
 // Assistants require
 export { default as Assistant } from "./assistant";
 export { default as PatientCheckIn } from "./patientCheckIn";
+export { default as FileUpload } from "./fileUpload";
+export { default as Files } from "./files";

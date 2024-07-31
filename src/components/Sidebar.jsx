@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const defaultPath = "/assistants/patientCheckIn";
+  const defaultPath = "/assistants/files";
   const [active, setActive] = useState(location.pathname);
 
   useEffect(() => {
@@ -16,10 +16,20 @@ const Sidebar = () => {
   }, [location.pathname, navigate]);
 
   const menuItems = [
+    // {
+    //   path: "/assistants/patientCheckIn",
+    //   name: "Patient Check-In",
+    //   icon: "📍",
+    // },
     {
-      path: "/assistants/patientCheckIn",
-      name: "Patient Check-In",
-      icon: "📍",
+      path: "/assistants/fileUpload",
+      name: "File Upload",
+      icon: "🔗",
+    },
+    {
+      path: "/assistants/files",
+      name: "Files",
+      icon: "📂",
     },
   ];
 

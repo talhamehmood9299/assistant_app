@@ -3,6 +3,8 @@ import ProtectedRoute from "./components/Protected";
 import Toastify from "./components/Toastify";
 import {
   Assistant,
+  Files,
+  FileUpload,
   Footer,
   Header,
   Login,
@@ -47,9 +49,17 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         children: [
+          // {
+          //   path: "patientCheckIn",
+          //   element: <PatientCheckIn />,
+          // },
           {
-            path: "patientCheckIn",
-            element: <PatientCheckIn />,
+            path: "fileUpload",
+            element: <FileUpload />,
+          },
+          {
+            path: "files",
+            element: <Files />,
           },
         ],
       },
