@@ -1,5 +1,9 @@
 const FileUpload = () => {
-  return <div>fileUpload</div>;
+  return (
+    <div>
+      <h1 className="">File Upload</h1>
+    </div>
+  );
 };
 
 export default FileUpload;
