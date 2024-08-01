@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Input from "../components/Input";
 import { uploadDocument } from "../api/apiEndpoints";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Settings = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const locationId = useSelector((state) => state.location.selectedLocationId);
@@ -23,20 +22,6 @@ const Settings = () => {
     });
   };
 
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       setFile(reader.result);
-  //       setFormData({
-  //         ...formData,
-  //         file: reader.result,
-  //       });
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
@@ -54,13 +39,6 @@ const Settings = () => {
 
     try {
       const updatedFile = await uploadDocument(data);
-      // dispatch(
-      //   setProvider({
-      //     patient_name: formData.patient_name,
-      //     file: formData.file,
-      //     location_id: formData.location_id,
-      //   })
-      // );
       navigate("/assistants/files");
       toast.success(updatedFile.message);
     } catch (error) {
@@ -89,7 +67,7 @@ const Settings = () => {
             <input
               type="file"
               name="file"
-              className="file-input file-input-bordered file-input-primary bg-white w-full text-blue-900 border-blue-900"
+              className="file-input file-input-bordered file-input-primary bg-white w-full text-blue-900 border-primary"
               onChange={handleFileChange}
             />
             {file && (
