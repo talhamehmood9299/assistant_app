@@ -67,7 +67,7 @@ const Settings = () => {
             <input
               type="file"
               name="file"
-              className="file-input file-input-bordered file-input-success bg-white w-full"
+              className="file-input file-input-bordered file-input-primary bg-white w-full text-blue-900 border-blue-900"
               onChange={handleFileChange}
             />
             {file && (
