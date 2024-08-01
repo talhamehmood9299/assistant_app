@@ -49,7 +49,8 @@ const Files = () => {
               <span className="loading loading-bars loading-lg"></span>
             </div>
           ) : (
-            documents.map((document) => (
+            <div className="max-h-[65vh] overflow-y-auto">
+           { documents.map((document) => (
               <div
                 key={document.id}
                 className="px-4 py-2 items-center sm:grid sm:grid-cols-4 sm:gap-4 sm:px-0"
@@ -109,7 +110,8 @@ const Files = () => {
                   <button>Delete</button>
                 </dd>
               </div>
-            ))
+            ))}
+          </div>
           )}
         </dl>
       </div>
@@ -118,3 +120,14 @@ const Files = () => {
 };
 
 export default Files;
+
+
+
+
+
+
+
+
+
+
+
