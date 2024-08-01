@@ -6,22 +6,16 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../api/firebase";
 import Select from "../components/Select";
 import { toast } from "react-hot-toast";
-// import { getProviders, getLocations } from "../api/service";
-import { setProvider } from "../redux/reducers/providersReducer";
 import { setSelectedLocation } from "../redux/reducers/locationReducer";
-import { getLocations, getProviders } from "../api/apiEndpoints";
+import { getLocations } from "../api/apiEndpoints";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  // Provider states
-  const [provider, setProviderLocal] = useState([]);
-  const [selectedProvider, setSelectedProvider] = useState("");
   // Location states
   const [location, setLocation] = useState([]);
   const [selectedLocation, setSelectedLocationLocal] = useState("");
-  const [error, setError] = useState("");
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -32,28 +26,6 @@ const Login = () => {
       navigate("/assistants");
     }
   }, [isAuthenticated, navigate]);
-
-  useEffect(() => {
-    const getProvidersInfo = async () => {
-      try {
-        const data = await getProviders();
-        const options = data.map((item) => ({
-          value: item.name,
-          label: item.name,
-          profile: item.profile,
-          room: item.room,
-          name: item.name,
-          description: item.description,
-          address: item.address,
-          azz_id: item.azz_id,
-        }));
-        setProviderLocal(options);
-      } catch (error) {
-        console.error("Error fetching location:", error);
-      }
-    };
-    getProvidersInfo();
-  }, []);
 
   useEffect(() => {
     const getLocation = async () => {
@@ -82,21 +54,6 @@ const Login = () => {
     try {
       const { email, password } = user;
       await signInWithEmailAndPassword(auth, email, password);
-      const providerInfo = provider.find(
-        (item) => item.value === selectedProvider
-      );
-      if (providerInfo) {
-        dispatch(
-          setProvider({
-            name: providerInfo.name,
-            profile: providerInfo.profile,
-            room: providerInfo.room,
-            description: providerInfo.description,
-            address: providerInfo.address,
-            azz_id: providerInfo.azz_id,
-          })
-        );
-      }
       const locationItem = location.find(
         (loc) => loc.value === selectedLocation
       );
@@ -129,9 +86,7 @@ const Login = () => {
       [name]: value,
     }));
   };
-  const handleProviderChange = (e) => {
-    setSelectedProvider(e.target.value);
-  };
+
   const handleLocationChange = (e) => {
     setSelectedLocationLocal(e.target.value);
   };
@@ -145,15 +100,6 @@ const Login = () => {
         <div className="font-semibold text-2xl text-[#1E328F]  text-center py-5">
           Sign in to your account
         </div>
-        <Select
-          value={selectedProvider}
-          onChange={handleProviderChange}
-          options={provider}
-          placeholder="Select Provider"
-          styles={{
-            control: "w-60 h-12 border-1 border-blue-500 bg-white rounded-lg",
-          }}
-        />
         <Select
           required
           value={selectedLocation}

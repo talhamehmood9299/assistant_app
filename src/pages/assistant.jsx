@@ -4,14 +4,20 @@ import Sidebar from "../components/Sidebar";
 import { logout } from "../redux/reducers/authReducer.js";
 import toast from "react-hot-toast";
 import ProfileHeader from "../components/ProfileHeader.jsx";
+import { removeAddress } from "../redux/reducers/locationReducer.js";
 
 const Assistant = () => {
   const provider = useSelector((state) => state.provider.providers);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleRemoveAddress = () => {
+    dispatch(removeAddress());
+  };
+
   const handleLogout = () => {
     dispatch(logout());
+    handleRemoveAddress();
     navigate("/");
     toast.success("You are now logged out");
   };
