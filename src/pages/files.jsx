@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getDocument } from "../api/apiEndpoints";
+import { deleteDocument, getDocument } from "../api/apiEndpoints";
 import Popup from "../components/Popup";
 import toast from "react-hot-toast";
 
@@ -33,11 +33,12 @@ const Files = () => {
     if (selectedDocumentId !== null) {
       setIsDeleting(true);
       try {
+        const data = await deleteDocument(selectedDocumentId);
         const updatedDocuments = documents.filter(
           (document) => document.id !== selectedDocumentId
         );
         setDocuments(updatedDocuments);
-        toast.success("Document deleted successfully");
+        toast.success(data.message);
       } catch (error) {
         console.error("Error removing patient:", error);
       } finally {

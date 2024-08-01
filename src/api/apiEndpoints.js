@@ -82,3 +82,10 @@ export const getDocument = async (locationId) => {
   });
   return data;
 };
+
+export const deleteDocument = async (deleteId) => {
+  const data = await request("/api/v1/delete-document", "post", null, {
+    id: deleteId,
+  });
+  return data;
+};

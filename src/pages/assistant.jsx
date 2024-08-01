@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { logout } from "../redux/reducers/authReducer.js";
 import toast from "react-hot-toast";
+import ProfileHeader from "../components/ProfileHeader.jsx";
 
 const Assistant = () => {
   const provider = useSelector((state) => state.provider.providers);
