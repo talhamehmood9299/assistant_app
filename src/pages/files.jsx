@@ -60,7 +60,7 @@ const Files = () => {
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
         <div className="px-4 sm:px-0">
           <h2 className="text-xl text-blue-900 font-bold pb-4 mb-5 border-b border-gray-200">
             All Documents
