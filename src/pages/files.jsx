@@ -60,15 +60,15 @@ const Files = () => {
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow-lg p-6 -pb-12">
-        <div className="px-4 -pt-34 sm:px-0">
-          <h2 className="text-xl text-blue-900 font-bold pb-4 mb-5 border-gray-200">
+      <div className="bg-white rounded-lg shadow-lg px-6 pt-6 ">
+        <div className="px-4 pt-34 sm:px-0">
+          <h2 className="text-xl text-blue-900 font-bold mb-5 border-gray-200">
             All Documents
           </h2>
         </div>
-        <div className="-mt-10 border-t border-gray-200">
+        <div className="mt-4 border-t border-gray-200">
           <div className="overflow-x-auto">
-            <div className="max-h-[515px] overflow-y-auto">
+            <div className="max-h-screen md:max-h-[500px] lg:max-h-[565px] xl:max-h-[595px] overflow-y-auto">
               {" "}
               {/* Adjust max-h as needed */}
               <dl className="divide-y divide-gray-200">
